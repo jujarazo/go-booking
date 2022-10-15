@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"jujarazo/booking-app/common"
+	t "jujarazo/booking-app/types"
 )
 
 // Package level to make them Global they must start with capitalize letter
@@ -10,13 +11,19 @@ const confName = "Go Conference"
 const confTickets = 50
 
 var remainingTickets uint = 50
-var bookings = []string{}
+var bookings = []t.UserData{}
+
+// type UserData struct {
+// 	userName string
+// 	email    string
+// 	tickets  uint
+// }
 
 func main() {
 	common.GreetUsers(confName, confTickets, remainingTickets)
 
 	for {
-		var userName string = "holis"
+		var userName string
 		var userEmail string
 		var userTickets uint = 10
 
@@ -34,7 +41,13 @@ func main() {
 			continue
 		}
 
-		bookings = append(bookings, userName)
+		var userData = t.UserData{
+			UserName: userName,
+			Email:    userEmail,
+			Tickets:  userTickets,
+		}
+
+		bookings = append(bookings, userData)
 
 		remainingTickets = remainingTickets - userTickets
 

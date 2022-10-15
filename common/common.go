@@ -2,6 +2,7 @@ package common
 
 import (
 	"fmt"
+	t "jujarazo/booking-app/types"
 	"strings"
 )
 
@@ -31,7 +32,7 @@ func GetUserTickets(userTickets *uint, remainingTickets *uint) bool {
 	return *userTickets > 0 && *userTickets <= *remainingTickets
 }
 
-func FinallizePurchase(userName string, userEmail string, userTickets uint, remainingTickets uint, confName string, bookings []string) {
+func FinallizePurchase(userName string, userEmail string, userTickets uint, remainingTickets uint, confName string, bookings []t.UserData) {
 	fmt.Printf("User %v with email %v booked %v tickets.\n", userName, userEmail, userTickets)
 
 	fmt.Printf("%v tickets remaining for the %v\n", remainingTickets, confName)
