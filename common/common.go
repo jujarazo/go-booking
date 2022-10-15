@@ -4,6 +4,7 @@ import (
 	"fmt"
 	t "jujarazo/booking-app/types"
 	"strings"
+	"time"
 )
 
 func GreetUsers(confName string, remainingTickets uint, confTickets uint) {
@@ -38,4 +39,12 @@ func FinallizePurchase(userName string, userEmail string, userTickets uint, rema
 	fmt.Printf("%v tickets remaining for the %v\n", remainingTickets, confName)
 
 	fmt.Printf("Current bookings are: %v\n", bookings)
+}
+
+func SendEmail(userTickets uint, userName string, userEmail string) {
+	time.Sleep(10 * time.Second)
+	var ticket = fmt.Sprintf("%v tickets fro %v", userTickets, userName)
+	fmt.Println("##############")
+	fmt.Printf("Sending the ticket:\n %v \nto %v\n", ticket, userEmail)
+	fmt.Println("##############")
 }

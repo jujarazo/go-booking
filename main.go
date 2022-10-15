@@ -60,6 +60,8 @@ func main() {
 
 		common.FinallizePurchase(userName, userEmail, userTickets, remainingTickets, confName, bookings)
 
+		go common.SendEmail(userTickets, userName, userEmail)
+
 		isSoldOut := remainingTickets == 0
 		if isSoldOut {
 			fmt.Println("The tickets for the conference sold out!")
